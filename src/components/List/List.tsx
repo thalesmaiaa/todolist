@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ClipboardText, Trash } from 'phosphor-react';
 
 import { Task } from '../../types';
+import { v4 as uuid } from 'uuid';
 
 import styles from './List.module.css';
 
@@ -66,7 +67,7 @@ export function List({ listItems, onDeleteListItems, updateList }: Props) {
         ) : (
           <>
             {listItems.map((item) => (
-              <div className={styles.listContent} key={item.task}>
+              <div className={styles.listContent} key={uuid()}>
                 <Checkbox
                   task={item}
                   listItems={listItems}
